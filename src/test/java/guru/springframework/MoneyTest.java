@@ -2,8 +2,7 @@ package guru.springframework;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MoneyTest {
 	@Test
@@ -18,6 +17,7 @@ public class MoneyTest {
 	void testEqualityDollar() {
 		assertEquals(new Dollar(5), new Dollar(5));
 		assertNotEquals(new Dollar(5), new Dollar(8));
+		assertNotEquals(new Dollar(5), new Franc(5));
 	}
 	
 	@Test
@@ -32,5 +32,17 @@ public class MoneyTest {
 	void testEqualityFranc() {
 		assertEquals(new Franc(5), new Franc(5));
 		assertNotEquals(new Franc(5), new Franc(8));
+	}
+	
+	@Test
+	void testLongEquality() {
+		Long l1 = 127L;
+		Long l2 = 127L;
+		assertTrue(l1 .equals( l2));
+		
+		
+		Long l3 = 128L;
+		Long l4 = 128L;
+		assertTrue(l3 .equals( l4));
 	}
 }
